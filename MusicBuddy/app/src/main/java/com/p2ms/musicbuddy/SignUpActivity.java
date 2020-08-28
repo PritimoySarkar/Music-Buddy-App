@@ -1,27 +1,105 @@
 package com.p2ms.musicbuddy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    TextInputEditText name,email,contact,gender,pass,passConf;
+    TextInputEditText nameId,emailId,contactId,passId,passConfId;
+    TextView genderText;
     Button signUp;
+
+    private RadioGroup genderGroup;
+    private RadioButton genderButton;
+
+    private String name,email,contact,gender,pass,passConf;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        name=findViewById(R.id.nameEditId);
-        email=findViewById(R.id.emailEditID);
-        contact=findViewById(R.id.contactEditID);
+        nameId=findViewById(R.id.nameEditId);
+        emailId=findViewById(R.id.emailEditID);
+        contactId=findViewById(R.id.contactEditID);
         //gender=findViewById(R.id.nameEditId);
-        pass=findViewById(R.id.passwordEditID);
-        passConf=findViewById(R.id.passwordConfEditID);
+        passId=findViewById(R.id.passwordEditID);
+        passConfId=findViewById(R.id.passwordConfEditID);
+        genderText=findViewById(R.id.genderTextId);
+
+        signUp=findViewById(R.id.signUpBtnId);
+        mAuth=FirebaseAuth.getInstance();
+
+        addListenerOnButton();
+    }
+
+    private void addListenerOnButton() {
+        genderGroup=(RadioGroup) findViewById(R.id.genderId);
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                name=String.valueOf(nameId.getText()).trim();
+                email=String.valueOf(emailId.getText()).trim();
+                contact=String.valueOf(contactId.getText()).trim();
+                pass=String.valueOf(passId.getText()).trim();
+                passConf=String.valueOf(passConfId.getText()).trim();
+                int selectedGender = genderGroup.getCheckedRadioButtonId(); //Get selected Button ID
+                Log.d("SignUpActivity","Checking"+selectedGender);
+                genderButton=(RadioButton) findViewById(selectedGender);
+                //Toast.makeText(SignUpActivity.this,genderButton.getText(),Toast.LENGTH_LONG).show();
+
+                if(name.isEmpty()) nameId.setError("You have to put a name");
+                else if (email.isEmpty()) emailId.setError("Email field can't be blank");
+                else if (contact.isEmpty()) contactId.setError("Phone number field can't be blank");
+                else if(selectedGender==-1)  genderText.setError("You must select your gender");
+                else if (pass.isEmpty()) passId.setError("Password field can't be blank");
+                else if (passConf.isEmpty()) passConfId.setError("You have to confirm the password");
+                else if (!pass.equals(passConf)){
+                    passConfId.setError("Password mismatch");
+                    Toast.makeText(SignUpActivity.this,
+                            "Password didn't match",
+                            Toast.LENGTH_LONG).show();
+                }
+                else{
+                    gender=String.valueOf(genderButton.getText()).trim();
+                    Log.d("SignUpActivity","Instance accepted");
+                    Log.d("SignUpActivity","data:"+name+email+contact+pass+gender);
+                    mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(SignUpActivity.this,
+                                        "Signed Up Successfully",
+                                        Toast.LENGTH_LONG).show();
+                                //Have to add Create profile code here
+
+                            }else{
+                                Toast.makeText(SignUpActivity.this,
+                                        "Sign Up Failed",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+                }
+            }
+        });
     }
 }

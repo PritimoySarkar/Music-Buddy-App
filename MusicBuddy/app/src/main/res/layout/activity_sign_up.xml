@@ -73,7 +73,8 @@
         android:paddingVertical="10dp"
         android:textSize="18sp"
         android:paddingLeft="5dp"
-        android:paddingRight="30dp"/>
+        android:paddingRight="30dp"
+        android:id="@+id/genderTextId"/>
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -98,7 +99,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/passwordId">
+        android:id="@+id/passwordId"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -111,7 +113,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/passwordConfId">
+        android:id="@+id/passwordConfId"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -131,7 +134,7 @@
         android:textSize="30sp"
         android:layout_gravity="right"
         android:layout_margin="20dp"
-        android:id="@+id/signInBtnId"/>
+        android:id="@+id/signUpBtnId"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
