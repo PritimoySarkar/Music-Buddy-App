@@ -58,14 +58,15 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phome Number"
+            android:hint="Phone Number"
             android:inputType="phone"
             android:id="@+id/contactEditID"/>
 
     </com.google.android.material.textfield.TextInputLayout>
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
