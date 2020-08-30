@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        emailID=findViewById(R.id.emailEditID);
+        emailID=findViewById(R.id.loginEdID);
         passID=findViewById(R.id.passEdID);
         loginButtonID=findViewById(R.id.loginButtonID);
         noAcc=findViewById(R.id.noAccId);
@@ -48,8 +48,10 @@ public class LoginActivity extends AppCompatActivity {
         loginButtonID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("LoginActivity","Clicked on Login");
                 email=String.valueOf(emailID.getText()).trim();
                 password=String.valueOf(passID.getText()).trim();
+                Log.d("LoginActivity","ID "+email+"password "+password);
                 firebaseAuth=FirebaseAuth.getInstance();
                 if(email.isEmpty()) emailID.setError("Didn't Enter any email ID");
                 else if(password.isEmpty()) passID.setError("Didn't Enter any password");

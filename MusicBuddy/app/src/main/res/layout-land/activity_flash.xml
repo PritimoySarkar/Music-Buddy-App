@@ -25,7 +25,7 @@
             android:textStyle="bold|italic"
             android:layout_gravity="center"
             android:textColor="#F8E962"
-            android:layout_marginTop="60dp"/>
+            android:layout_marginTop="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,9 +35,8 @@
             android:text="Welcome to"
             android:textSize="70sp"
             android:textStyle="bold"
-            android:layout_marginBottom="50dp"
-            android:textColor="#D64EED"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginBottom="30dp"
+            android:textColor="#D64EED"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,8 +46,7 @@
             android:text="Music Buddy"
             android:textSize="60sp"
             android:textStyle="bold"
-            android:textColor="#cb3c3c"
-            android:layout_marginTop="15dp"/>
+            android:textColor="#cb3c3c"/>
 
 
     </LinearLayout>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:orientation="vertical"
-    android:background="@drawable/sign_up_bg">
+    android:background="@drawable/sign_up_bg_land">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,22 +16,26 @@
 
         <ImageView
             android:id="@+id/loginImgID"
-            android:layout_width="wrap_content"
-            android:layout_height="157dp"
-            android:layout_marginTop="150dp"
-            android:src="@drawable/sign_in_img" />
+            android:layout_width="350dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/sign_in_img"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="100dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/loginID"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
 
         <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/loginEdID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email ID"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+            android:layout_marginHorizontal="150dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -44,16 +48,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:layout_marginHorizontal="150dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Log In"
         android:layout_gravity="right"
-        android:id="@+id/loginButtonID"/>
+        android:id="@+id/loginButtonID"
+        android:layout_marginRight="150dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -62,6 +68,7 @@
         android:text="Don't have an account? Click here"
         android:gravity="bottom|center"
         android:id="@+id/noAccId"
-        android:padding="20dp"/>
+        android:textSize="20dp"
+        android:paddingTop="10dp"/>
 </LinearLayout>
-</RelativeLayout>
+</ScrollView>

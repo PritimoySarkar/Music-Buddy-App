@@ -18,13 +18,14 @@
             android:id="@+id/loginImgID"
             android:layout_width="wrap_content"
             android:layout_height="157dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="320dp"
             android:src="@drawable/sign_in_img" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/loginID"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
 
         <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/loginEdID"
@@ -37,7 +38,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passID"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passEdID"
@@ -50,7 +52,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="Log In"
         android:layout_gravity="right"
         android:id="@+id/loginButtonID"/>
@@ -62,6 +64,7 @@
         android:text="Don't have an account? Click here"
         android:gravity="bottom|center"
         android:id="@+id/noAccId"
-        android:padding="20dp"/>
+        android:padding="20dp"
+        android:textSize="30sp"/>
 </LinearLayout>
 </RelativeLayout>

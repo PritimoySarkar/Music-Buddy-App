@@ -37,7 +37,7 @@ public class FlashActivity extends AppCompatActivity {
                         }
                         FlashActivity.this.finish();
                     }
-                },2000);
+                },3500);
 
     }
 }

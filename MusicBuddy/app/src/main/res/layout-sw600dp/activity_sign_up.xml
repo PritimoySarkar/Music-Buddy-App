@@ -12,14 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingHorizontal="20dp"
-        >
+        android:paddingHorizontal="20dp">
 
         <ImageView
             android:id="@+id/signInImgID"
             android:layout_width="wrap_content"
             android:layout_height="113dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="230dp"
             android:src="@drawable/sign_up_img"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -29,7 +28,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nameId">
+        android:id="@+id/nameId"
+        android:layout_marginTop="40dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -42,7 +42,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/emailId">
+        android:id="@+id/emailId"
+        android:layout_marginTop="40dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -55,7 +56,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/contactId">
+        android:id="@+id/contactId"
+        android:layout_marginTop="40dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -68,7 +70,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,7 +106,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/passwordId"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="40dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -117,7 +121,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/passwordConfId"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="40dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -136,7 +141,7 @@
         android:textStyle="italic|bold"
         android:textSize="30sp"
         android:layout_gravity="right"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:id="@+id/signUpBtnId"/>
     <TextView
             android:layout_width="match_parent"
@@ -145,7 +150,7 @@
             android:text="Already have an account? Click here"
             android:gravity="bottom|center"
             android:id="@+id/haveAccId"
-            android:layout_marginBottom="20dp"
-        android:paddingTop="50dp"/>
+        android:layout_marginTop="30dp"
+        android:textSize="30sp"/>
     </LinearLayout>
 </ScrollView>

@@ -21,11 +21,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hey Buddy"
-            android:textSize="50sp"
+            android:textSize="90sp"
             android:textStyle="bold|italic"
             android:layout_gravity="center"
             android:textColor="#F8E962"
-            android:layout_marginTop="60dp"/>
+            android:layout_marginTop="200dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,11 +33,10 @@
             android:layout_gravity="center"
             android:fontFamily="@font/griffy"
             android:text="Welcome to"
-            android:textSize="70sp"
+            android:textSize="100sp"
             android:textStyle="bold"
-            android:layout_marginBottom="50dp"
             android:textColor="#D64EED"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="50dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,10 +44,10 @@
             android:layout_gravity="center"
             android:fontFamily="@font/mystery_quest"
             android:text="Music Buddy"
-            android:textSize="60sp"
+            android:textSize="120sp"
             android:textStyle="bold"
             android:textColor="#cb3c3c"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="60dp"/>
 
 
     </LinearLayout>
@@ -58,5 +57,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:scrollbarSize="80dp"/>
+        android:scrollbarSize="200dp"/>
 </RelativeLayout>
