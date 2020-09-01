@@ -33,7 +33,7 @@ public class FlashActivity extends AppCompatActivity {
 
                         }else{
                             Log.d("FlashActivity","User already logged in");
-                            //startActivity(new Intent(FlashActivity.this,HomeActivity.class));
+                            startActivity(new Intent(FlashActivity.this,InsideActivity.class));
                         }
                         FlashActivity.this.finish();
                     }

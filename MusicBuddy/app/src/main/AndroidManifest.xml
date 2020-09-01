@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoBarTheme">
+        <activity
+            android:name=".InsideActivity"
+            android:label="@string/title_activity_inside"
+            android:theme="@style/AppTheme"></activity>
         <activity android:name=".FlashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SignUpActivity"/>
+        <activity android:name=".SignUpActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

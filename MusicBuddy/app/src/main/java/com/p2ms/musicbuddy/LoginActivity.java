@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                                             Toast.makeText(LoginActivity.this,"Logged in  Successfully",Toast.LENGTH_LONG).show();
                                             LocalSession local= new LocalSession(LoginActivity.this);
                                             local.setData(StaticData.ID,existingUser.getUid());
-                                            //startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                                            startActivity(new Intent(LoginActivity.this,InsideActivity.class));
                                             LoginActivity.this.finish();
                                         }else{
                                             Log.d("LoginActivity","Email not verified");
