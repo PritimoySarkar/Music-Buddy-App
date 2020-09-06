@@ -9,13 +9,13 @@
         android:id="@+id/navigation_Search"
         android:name="com.p2ms.musicbuddy.ui.search.SearchFragment"
         android:label="@string/title_search"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_now_playing"
         android:name="com.p2ms.musicbuddy.ui.nowPlaying.NowPlayingFragment"
         android:label="@string/title_now_playing"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_now_playing" />
 
     <fragment
         android:id="@+id/navigation_notifications"

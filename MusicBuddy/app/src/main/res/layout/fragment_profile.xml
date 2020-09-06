@@ -6,9 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ui.profile.ProfileFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/save_icon"
+            android:id="@+id/upload_buttonID"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"/>
 
         <com.mikhaellopez.circularimageview.CircularImageView
             android:layout_width="300dp"
@@ -20,7 +32,7 @@
             app:civ_shadow="true"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/edit_buttonID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -28,13 +40,12 @@
             android:layout_alignRight="@+id/profilePicID"
             android:layout_alignBottom="@+id/profilePicID"
             android:layout_marginLeft="50dp"/>
+    </RelativeLayout>
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/profilePicID"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="255dp"
+            android:layout_marginTop="20dp"
             android:editable="false"
             tools:ignore="Deprecated"
             android:id="@+id/profile_nameId"/>
@@ -42,22 +53,23 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/profilePicID"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="255dp"
             android:editable="false"
             tools:ignore="Deprecated"
-            android:id="@+id/profile_emialID"/>
+            android:id="@+id/profile_emailID"/>
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/profilePicID"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="255dp"
             android:editable="false"
             tools:ignore="Deprecated"
             android:id="@+id/profile_contactID"/>
-    </RelativeLayout>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            tools:ignore="Deprecated"
+            android:id="@+id/profile_genderID"/>
+    </LinearLayout>
 
 </ScrollView>
