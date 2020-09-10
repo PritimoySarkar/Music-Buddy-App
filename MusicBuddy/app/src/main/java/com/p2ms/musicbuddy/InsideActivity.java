@@ -31,6 +31,7 @@ public class InsideActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_Search, R.id.navigation_now_playing, R.id.navigation_notifications,R.id.navigation_profile)
                 .build();
@@ -54,6 +55,7 @@ public class InsideActivity extends AppCompatActivity {
                 break;
             case (R.id.Help_buttonID):
                 Log.d("InsideActivity","Search Button Clicked");
+                
                 Toast.makeText(InsideActivity.this,"Opening App documentation",Toast.LENGTH_LONG).show();
                 break;
         }

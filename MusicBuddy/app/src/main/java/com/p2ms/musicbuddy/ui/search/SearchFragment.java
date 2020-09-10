@@ -1,47 +1,37 @@
 package com.p2ms.musicbuddy.ui.search;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.p2ms.musicbuddy.R;
 import com.p2ms.musicbuddy.adapter.RecyclerItemAdapter;
 import com.p2ms.musicbuddy.model.Song;
+import com.p2ms.musicbuddy.ui.nowPlaying.NowPlayingFragment;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment implements RecyclerItemAdapter.BtnPlayedListener {
 
     private SearchViewModel searchViewModel;
     private Button search;
@@ -56,11 +46,18 @@ public class SearchFragment extends Fragment {
     FirebaseStorage storage;
     StorageReference storageRef;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         searchViewModel =
                 ViewModelProviders.of(this).get(SearchViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_search, container, false);
+
+        final ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Fetching Song Details");
+        progressDialog.setMessage("Please wait");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
 
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
@@ -98,11 +95,12 @@ public class SearchFragment extends Fragment {
                             linearLayoutManager= new LinearLayoutManager(getContext());
                             rv.setLayoutManager(linearLayoutManager);
 
-                            adapter = new RecyclerItemAdapter(getContext(),songList);
+                            adapter = new RecyclerItemAdapter(getContext(),songList, SearchFragment.this);
                             rv.setAdapter(adapter);
+                            progressDialog.dismiss();
 
                         } else {
-                            //Log.w(TAG, "Error getting documents.", task.getException());
+                            Log.w("SearchFragment", "Error getting documents.", task.getException());
                         }
                     }
                 });
@@ -110,4 +108,13 @@ public class SearchFragment extends Fragment {
 
     }
 
+
+    @Override
+    public void btnPlayed(Song song) {
+        NowPlayingFragment nowPlayingFragment = new NowPlayingFragment();
+        FragmentTransaction fragmentManager = getFragmentManager().beginTransaction();
+        fragmentManager.replace(R.id.SearchFragmentLayout,nowPlayingFragment);
+        fragmentManager.addToBackStack(null);
+        fragmentManager.commit();
+    }
 }
